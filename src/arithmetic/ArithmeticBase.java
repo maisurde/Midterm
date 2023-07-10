@@ -10,30 +10,58 @@ import java.util.Scanner;
 /** This class takes String input plus,minus,divide and times
  * from user and execute the arithmetic operation
  * change the code to use enum instead String and mention the advantage of enum.
- * @author sivagamasrinivasan
+ * @author Denishkumar Maisuriya 
  * 
  */
-public class ArithmeticBase 
-{
- public double x,y;
-    double calculate(double x, double y) 
-        {
-        Scanner sc =new Scanner(System.in);
-        System.out.println("Enter arithmetic operation to Perform: ");
-        String s= sc.next();
-        switch (s.toUpperCase()) 
-        {
-            case "PLUS":
+
+
+
+
+public class ArithmeticBase {
+    public double calculate(double x, double y, ArithmeticOperation operation) {
+        switch (operation) {
+            case PLUS:
                 return x + y;
-            case "MINUS":
+            case MINUS:
                 return x - y;
-            case "TIMES":
+            case TIMES:
                 return x * y;
-            case "DIVIDE":
+            case DIVIDE:
                 return x / y;
             default:
-                throw new AssertionError("Unknown operations " + this);
+                throw new AssertionError("Unknown operation: " + operation);
         }
     }
-   
 }
+
+
+
+public enum ArithmeticOperation 
+{
+    PLUS,
+    MINUS,
+    TIMES,
+    DIVIDE
+}
+
+
+
+public class Arithmetic {
+    public static void main(String[] args) {
+        ArithmeticBase r = new ArithmeticBase();
+        Scanner in = new Scanner(System.in);
+        double n = in.nextDouble();
+        double m = in.nextDouble();
+        
+        double plusResult = r.calculate(n, m, ArithmeticOperation.PLUS);
+        double minusResult = r.calculate(n, m, ArithmeticOperation.MINUS);
+        double timesResult = r.calculate(n, m, ArithmeticOperation.TIMES);
+        double divideResult = r.calculate(n, m, ArithmeticOperation.DIVIDE);
+        
+        System.out.println("Result (PLUS): " + plusResult);
+        System.out.println("Result (MINUS): " + minusResult);
+        System.out.println("Result (TIMES): " + timesResult);
+        System.out.println("Result (DIVIDE): " + divideResult);
+    }
+}
+ 

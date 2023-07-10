@@ -46,22 +46,4 @@ public enum ArithmeticOperation
 
 
 
-public class Arithmetic {
-    public static void main(String[] args) {
-        ArithmeticBase r = new ArithmeticBase();
-        Scanner in = new Scanner(System.in);
-        double n = in.nextDouble();
-        double m = in.nextDouble();
-        
-        double plusResult = r.calculate(n, m, ArithmeticOperation.PLUS);
-        double minusResult = r.calculate(n, m, ArithmeticOperation.MINUS);
-        double timesResult = r.calculate(n, m, ArithmeticOperation.TIMES);
-        double divideResult = r.calculate(n, m, ArithmeticOperation.DIVIDE);
-        
-        System.out.println("Result (PLUS): " + plusResult);
-        System.out.println("Result (MINUS): " + minusResult);
-        System.out.println("Result (TIMES): " + timesResult);
-        System.out.println("Result (DIVIDE): " + divideResult);
-    }
-}
  
